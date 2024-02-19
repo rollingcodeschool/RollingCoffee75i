@@ -9,9 +9,7 @@ import FormularioProducto from "./components/pages/producto/FormularioProducto";
 import DetalleProducto from "./components/pages/DetalleProducto";
 
 function App() {
-  return (
-  <Menu></Menu>
-  );
+  return <Menu></Menu>;
 }
 
 export default App;
