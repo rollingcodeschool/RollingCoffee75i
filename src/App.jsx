@@ -24,6 +24,10 @@ function App() {
           path="/administrador"
           element={<Administrador></Administrador>}
         ></Route>
+        <Route
+          path="/administrador/crear"
+          element={<FormularioProducto></FormularioProducto>}
+        ></Route>
         <Route path="*" element={<Error404></Error404>}></Route>
       </Routes>
       <Footer></Footer>
