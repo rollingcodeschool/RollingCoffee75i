@@ -1,8 +1,26 @@
 import { Button, Table } from "react-bootstrap";
 import ItemProducto from "./producto/ItemProducto";
-
+import { useEffect, useState } from "react";
+import { leerProductos } from "../../helpers/queries";
 
 const Administrador = () => {
+const [productos, setProductos] = useState([])
+
+  useEffect(()=>{
+//solicitar a la api traer los productos
+    obtenerProductos();
+  }, [])
+
+  const obtenerProductos = async()=>{
+    const respuesta = await leerProductos();
+    if(respuesta.status === 200){
+      const datos = await respuesta.json();
+      setProductos(datos);
+    }else{
+      //mostrar un mensaje de error al usuario
+    }
+  }
+
   return (
     <section className="container mainSection">
       <div className="d-flex justify-content-between align-items-center mt-5">
@@ -24,10 +42,9 @@ const Administrador = () => {
           </tr>
         </thead>
         <tbody>
-          <ItemProducto></ItemProducto>
-          <ItemProducto></ItemProducto>
-          <ItemProducto></ItemProducto>
-          <ItemProducto></ItemProducto>
+          {
+            productos.map((producto)=>  <ItemProducto key={producto.id} producto={producto}></ItemProducto>)
+          }
         </tbody>
       </Table>
     </section>
