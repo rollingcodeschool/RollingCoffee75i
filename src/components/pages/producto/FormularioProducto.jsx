@@ -61,22 +61,33 @@ const datosValidados = (producto)=>{
           <Form.Control
             type="text"
             placeholder="Ej: https://www.pexels.com/es-es/vans-en-blanco-y-negro-fuera-de-la-decoracion-para-colgar-en-la-pared-1230679/"
-          />
+            {...register('imagen',{
+              required: "La url de la imagen es obligatoria",
+              pattern: {
+                value: /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png)$/,
+                message: "Debe ingresar una URL valida, con una imagen en formato (jpg|jpeg|gif|png)"
+              }
+            })}
+         />
           <Form.Text className="text-danger">
-        prueba de error
+          {errors.imagen?.message}
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPrecio">
           <Form.Label>Categoría*</Form.Label>
-          <Form.Select>
+          <Form.Select {
+            ...register('categoria',{
+              required: "Debe seleccionar una categoria"
+            })
+          }>
             <option value="">Seleccione una opcion</option>
             <option value="Infusiones">Infusiones</option>
             <option value="Batidos">Batidos</option>
-            <option value="dulce">Dulce</option>
-            <option value="salado">Salado</option>
+            <option value="Dulce">Dulce</option>
+            <option value="Salado">Salado</option>
           </Form.Select>
           <Form.Text className="text-danger">
-          prueba de error
+          {errors.categoria?.message}
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formImagen">
@@ -85,9 +96,20 @@ const datosValidados = (producto)=>{
             type="text"
             placeholder="Ej: Una taza de café suave y aromático."
             as="textarea"
+            {...register('descripcion_breve',{
+              required: "La descripcion breve es obligatoria",
+              minLength:{
+                value: 10,
+                message: "Debe ingresar como minimo 10 caracteres"
+              },
+              maxLength:{
+                value: 50,
+                message: "Debe ingresar como maximo 50 caracteres"
+              }
+            })}
           />
           <Form.Text className="text-danger">
-        prueba de error
+       {errors.descripcion_breve?.message}
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formImagen">
@@ -96,9 +118,20 @@ const datosValidados = (producto)=>{
             type="text"
             placeholder="Ej: El café americano es una bebida caliente que consiste en un espresso diluido con agua caliente, lo que resulta en una taza de café suave y aromático. Es una opción popular para aquellos que prefieren un café menos intenso que el espresso tradicional. Perfecto para disfrutar en cualquier momento del día."
             as="textarea"
+            {...register('descripcion_amplia',{
+              required: "La descripcion amplia es obligatoria",
+              minLength:{
+                value: 30,
+                message: "Debe ingresar como minimo 30 caracteres"
+              },
+              maxLength:{
+                value: 300,
+                message: "Debe ingresar como maximo 300 caracteres"
+              }
+            })}
           />
           <Form.Text className="text-danger">
-        prueba de error
+            {errors.descripcion_amplia?.message}
           </Form.Text>
         </Form.Group>
         
