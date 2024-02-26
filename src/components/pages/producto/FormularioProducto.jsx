@@ -1,5 +1,6 @@
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { crearProducto } from "../../../helpers/queries";
 
 
 const FormularioProducto = () => {
@@ -7,6 +8,8 @@ const {register, handleSubmit, formState:{errors}} = useForm();
 
 const datosValidados = (producto)=>{
   console.log(producto)
+  //le voy a pedir a la api crear el producto nuevo
+  crearProducto(producto);
 }
 
   return (
