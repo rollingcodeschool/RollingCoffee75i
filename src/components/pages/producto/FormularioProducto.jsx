@@ -40,9 +40,20 @@ const datosValidados = (producto)=>{
           <Form.Control
             type="number"
             placeholder="Ej: 50"
+            {...register('precio',{
+              required: "El precio es un dato obligatorio",
+              min:{
+                value: 100,
+                message: "El precio como minimo es de $100"
+              },
+              max:{
+                value: 10000,
+                message: "El precio como maximo es de $10000"
+              }
+            })}
           />
           <Form.Text className="text-danger">
-          prueba de error
+          {errors.precio?.message}
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formImagen">
