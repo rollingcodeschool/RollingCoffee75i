@@ -29,3 +29,15 @@ export const crearProducto = async (productoNuevo) => {
 
 //PUT o PATCH
 //DELETE
+
+export const borrarProducto = async (id) => {
+  try {
+    const respuesta = await fetch(APIPRoductos+'/'+id,{
+      method: "DELETE"     
+    });
+    console.log(respuesta);
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
