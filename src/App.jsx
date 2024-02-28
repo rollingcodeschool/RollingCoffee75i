@@ -21,11 +21,11 @@ function App() {
           element={<DetalleProducto></DetalleProducto>}
         ></Route>
         <Route
-          path="/administrador"
+        exact path="/administrador"
           element={<Administrador></Administrador>}
         ></Route>
         <Route
-          path="/administrador/crear"
+         exact path="/administrador/crear"
           element={<FormularioProducto></FormularioProducto>}
         ></Route>
         <Route path="*" element={<Error404></Error404>}></Route>
