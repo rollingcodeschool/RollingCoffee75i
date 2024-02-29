@@ -17,6 +17,15 @@
       "categoria": "Dulce",
       "descripcion_breve": "macarons bonitos",
       "descripcion_amplia": "los macarons son pequeños placeres que aúnan la perfección estética con sabores delicados. Su textura única y variedad de colores y sabores hacen que sean irresistibles para los amantes de la repostería y una opción apreciada en la gastronomía internacional."
+    },
+    {
+      "id": "ee7f",
+      "nombreProducto": "café",
+      "precio": "500",
+      "imagen": "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg",
+      "categoria": "Infusiones",
+      "descripcion_breve": "ssssssssssssssssssssssssss",
+      "descripcion_amplia": "sssddddddddddddddddddddssssssssssssssssaaa"
     }
   ]
 }

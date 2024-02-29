@@ -41,3 +41,14 @@ export const borrarProducto = async (id) => {
     console.log(error);
   }
 };
+
+//GET de un unico producto
+export const obtenerProducto = async (id) => {
+  try {
+    const respuesta = await fetch(APIPRoductos+'/'+id);
+    console.log(respuesta)
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
