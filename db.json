@@ -10,22 +10,22 @@
       "descripcion_amplia": "Nuestro brownie de chocolate es un placer indulgente para los amantes del chocolate. Con una textura densa y un intenso sabor a chocolate, es el acompañamiento perfecto para tu café o té."
     },
     {
-      "id": "90ce",
-      "nombreProducto": "macarons",
-      "precio": "1700",
+      "nombreProducto": "macarons v2",
+      "precio": "1000",
       "imagen": "https://images.pexels.com/photos/808941/pexels-photo-808941.jpeg",
       "categoria": "Dulce",
-      "descripcion_breve": "macarons bonitos",
-      "descripcion_amplia": "los macarons son pequeños placeres que aúnan la perfección estética con sabores delicados. Su textura única y variedad de colores y sabores hacen que sean irresistibles para los amantes de la repostería y una opción apreciada en la gastronomía internacional."
+      "descripcion_breve": "macarons bonitos nuevos",
+      "descripcion_amplia": "los macarons son pequeños placeres que aúnan la perfección estética con sabores delicados. Su textura única y variedad de colores y sabores hacen que sean irresistibles para los amantes de la repostería y una opción apreciada en la gastronomía internacional.",
+      "id": "90ce"
     },
     {
-      "id": "ee7f",
-      "nombreProducto": "café",
-      "precio": "500",
+      "nombreProducto": "café cortado",
+      "precio": "1600",
       "imagen": "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg",
       "categoria": "Infusiones",
-      "descripcion_breve": "ssssssssssssssssssssssssss",
-      "descripcion_amplia": "sssddddddddddddddddddddssssssssssssssssaaa"
+      "descripcion_breve": "cortadito sdfsdf",
+      "descripcion_amplia": "Un cortado es un término de origen español para denominar a un café espresso con una pequeña cantidad de leche, normalmente caliente, para quitarle el amargor al café",
+      "id": "ee7f"
     }
   ]
 }

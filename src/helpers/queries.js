@@ -28,6 +28,22 @@ export const crearProducto = async (productoNuevo) => {
 };
 
 //PUT o PATCH
+export const editarProducto = async (productoEditado, id) => {
+  try {
+    const respuesta = await fetch(APIPRoductos+'/'+id,{
+      method: "PUT",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify(productoEditado)
+    });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
 //DELETE
 
 export const borrarProducto = async (id) => {
