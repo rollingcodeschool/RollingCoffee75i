@@ -1,6 +1,8 @@
 import { Form, Button, Container, Card } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
+import { login } from "../../helpers/queries";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -11,9 +13,26 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+const navegacion = useNavigate();
 
-  const onSubmit = (data) => {
-    console.log(data);
+
+  const onSubmit = (usuario) => {
+    if(login(usuario)){
+      //soy el admin
+      Swal.fire({
+        title: "Bienvenido",
+        text: `Ingresaste al panel de administración de RollingCoffee`,
+        icon: "success",
+      });
+      //redireccionar al admin
+      navegacion('/administrador')
+    }else{
+      Swal.fire({
+        title: "Ocurrio un error",
+        text: `Email o password incorrecto`,
+        icon: "error",
+      });
+    }
   };
 
   return (
@@ -25,14 +44,18 @@ const Login = () => {
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control
-                type="email"
+                type="text"
                 placeholder="Ingrese un email"
-                {...register("mail", {
+                {...register("email", {
                   required: "El nombre de usuario es obligatorio",
+                  pattern: {
+                    value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
+                    message: "Ingrese una dirección de correo electrónico válida",
+                  }
                 })}
               />
               <Form.Text className="text-danger">
-                {errors.mail?.message}
+                {errors.email?.message}
               </Form.Text>
             </Form.Group>
 
@@ -43,6 +66,10 @@ const Login = () => {
                 placeholder="Password"
                 {...register("password", {
                   required: "El nombre de password es obligatorio",
+                  pattern: {
+                    value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
+                    message: "El password debe contener al menos una letra mayúscula, una letra minúscula y un número",
+                  },
                 })}
               />
               <Form.Text className="text-danger">

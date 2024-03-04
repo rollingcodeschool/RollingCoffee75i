@@ -14,12 +14,12 @@ export const leerProductos = async () => {
 //POST
 export const crearProducto = async (productoNuevo) => {
   try {
-    const respuesta = await fetch(APIPRoductos,{
+    const respuesta = await fetch(APIPRoductos, {
       method: "POST",
-      headers:{
-        "Content-Type":"application/json"
+      headers: {
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(productoNuevo)
+      body: JSON.stringify(productoNuevo),
     });
     return respuesta;
   } catch (error) {
@@ -30,12 +30,12 @@ export const crearProducto = async (productoNuevo) => {
 //PUT o PATCH
 export const editarProducto = async (productoEditado, id) => {
   try {
-    const respuesta = await fetch(APIPRoductos+'/'+id,{
+    const respuesta = await fetch(APIPRoductos + "/" + id, {
       method: "PUT",
-      headers:{
-        "Content-Type":"application/json"
+      headers: {
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(productoEditado)
+      body: JSON.stringify(productoEditado),
     });
     return respuesta;
   } catch (error) {
@@ -43,13 +43,12 @@ export const editarProducto = async (productoEditado, id) => {
   }
 };
 
-
 //DELETE
 
 export const borrarProducto = async (id) => {
   try {
-    const respuesta = await fetch(APIPRoductos+'/'+id,{
-      method: "DELETE"     
+    const respuesta = await fetch(APIPRoductos + "/" + id, {
+      method: "DELETE",
     });
     console.log(respuesta);
     return respuesta;
@@ -61,10 +60,28 @@ export const borrarProducto = async (id) => {
 //GET de un unico producto
 export const obtenerProducto = async (id) => {
   try {
-    const respuesta = await fetch(APIPRoductos+'/'+id);
-    console.log(respuesta)
+    const respuesta = await fetch(APIPRoductos + "/" + id);
+    console.log(respuesta);
     return respuesta;
   } catch (error) {
     console.log(error);
+  }
+};
+
+//cuando tengamos el backend con un login enviar solicitud POST
+const userAdmin = {
+  email: "admin@rollingcoffee.com",
+  password: "123Aa$123",
+};
+
+export const login = (usuario) => {
+  if (
+    usuario.email === userAdmin.email &&
+    usuario.password === userAdmin.password
+  ) {
+    sessionStorage.setItem("loginRollingCoffee", JSON.stringify(usuario.email));
+    return true;
+  } else {
+    return false;
   }
 };
