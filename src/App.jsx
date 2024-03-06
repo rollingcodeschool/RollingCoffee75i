@@ -12,11 +12,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/pages/Login";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
 import RutasAdmin from "./components/routes/RutasAdmin";
+import { useState } from "react";
 
 function App() {
+  const usuario = JSON.parse(sessionStorage.getItem('loginRollingCoffee')) || "";
+  const [usuarioLogueado, setUsuarioLogueado] = useState(usuario);
+
   return (
     <BrowserRouter>
-      <Menu></Menu>
+      <Menu usuarioLogueado={usuarioLogueado}></Menu>
       <Routes>
         <Route path="/" element={<Inicio></Inicio>}></Route>
         <Route
@@ -25,7 +29,7 @@ function App() {
         ></Route>
         <Route
         exact path="/login"
-          element={<Login></Login>}
+          element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>}
         ></Route>
         <Route
         exact path="/administrador/*"

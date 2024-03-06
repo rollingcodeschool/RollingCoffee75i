@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const Login = () => {
+const Login = ({setUsuarioLogueado}) => {
 
   const {
     register,
@@ -24,6 +24,8 @@ const navegacion = useNavigate();
         text: `Ingresaste al panel de administración de RollingCoffee`,
         icon: "success",
       });
+      //guardar el usuario en el state
+      setUsuarioLogueado(usuario.email)
       //redireccionar al admin
       navegacion('/administrador')
     }else{
